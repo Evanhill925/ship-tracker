@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import SimpleInteractiveMap from './SimpleInteractiveMap'
+import InteractiveMap from './InteractiveMap'
 import ApiService, { ApiError, getConnectionStatus, getErrorMessage } from '../services/apiService'
 
 const LandingPage = () => {
@@ -261,7 +261,7 @@ const LandingPage = () => {
               </p>
             </div>
             
-            <SimpleInteractiveMap
+            <InteractiveMap
               ships={ships}
               onShipClick={handleShipClick}
               loading={loading}

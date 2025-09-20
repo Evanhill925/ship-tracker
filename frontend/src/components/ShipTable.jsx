@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import InteractiveMap from './InteractiveMap'
 
 const ShipTable = ({ ships, sortConfig, onSort, loading, currentPage, totalPages, onPageChange, viewMode }) => {
   const [selectedShip, setSelectedShip] = useState(null)
@@ -63,16 +64,12 @@ const ShipTable = ({ ships, sortConfig, onSort, loading, currentPage, totalPages
 
   if (viewMode === 'map') {
     return (
-      <div className="text-center py-5">
-        <div className="mb-4">
-          <i className="bi bi-geo-alt text-muted" style={{ fontSize: '4rem' }}></i>
-        </div>
-        <h4>Map View</h4>
-        <p className="text-muted mb-4">Map integration coming soon...</p>
-        <button className="btn btn-primary" onClick={() => onSort('list')}>
-          <i className="bi bi-list me-2"></i>
-          Switch to List View
-        </button>
+      <div>
+        <InteractiveMap
+          ships={ships}
+          onShipClick={(ship) => openShipModal(ship)}
+          loading={loading}
+        />
       </div>
     )
   }
